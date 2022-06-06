@@ -34,6 +34,6 @@ Route::get('/home', [EmpleadoController::class, 'index'])->name('home');
 Route::group(['middleware' => 'auth'], function(){
     Route::get('/',[EmpleadoController::class, 'index'])->name('home');
 });
-
+Route::get('/export/users', [App\Http\Controllers\ExcelController::class, 'descargaExcel']);
 
 

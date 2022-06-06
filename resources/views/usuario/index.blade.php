@@ -20,6 +20,9 @@
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close" >
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <form method="POST" action="create_excel.php"><!--Boton agregado para exportar a excel -->
+				    <button class="btn btn-success pull-right" name="export"><span class="glyphicon glyphicon-print"></span> Exportar a Excel</button><!--Boton agregado para exportar a excel -->
+			    </form><!--Boton agregado para exportar a excel -->
             </div>
             @endif
 

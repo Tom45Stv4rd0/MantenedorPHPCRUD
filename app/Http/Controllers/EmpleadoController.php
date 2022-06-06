@@ -14,7 +14,7 @@ class EmpleadoController extends Controller
      */
     public function index()
     {
-        //
+        
         $datos['empleados']=Empleado::paginate(20);
         return view('usuario.index',$datos );
     }
@@ -26,7 +26,7 @@ class EmpleadoController extends Controller
      */
     public function create()
     {
-        //
+        
         return view('usuario.create');
     }
 
@@ -38,7 +38,7 @@ class EmpleadoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
         $campos=[            
             'mail'=>'required|email', 
             'password'=>'required|min:8|max:12',
@@ -79,7 +79,7 @@ class EmpleadoController extends Controller
      */
     public function edit($id)
     {
-        //
+        
         $empleado=Empleado::findOrFail($id);
         return view('usuario.edit', compact('empleado'));
     }
@@ -93,7 +93,7 @@ class EmpleadoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
         $campos=[            
             'mail'=>'required|email', 
             'password'=>'required|min:8|max:12',
@@ -112,8 +112,7 @@ class EmpleadoController extends Controller
 
         $datosEmpleado = request()->except(['_token','_method']);
         Empleado::where('id','=',$id)->update($datosEmpleado);
-        $empleado=Empleado::findOrFail($id);
-        //return view('usuario.create', compact('empleado'));
+        $empleado=Empleado::findOrFail($id);        
         return redirect ('usuario')->with('mensaje','Usuario Modificado');
     }
 
@@ -125,7 +124,7 @@ class EmpleadoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
         Empleado::destroy($id);
         return redirect('usuario');
         return redirect ('usuario')->with('mensaje','Usuario Borrado');
